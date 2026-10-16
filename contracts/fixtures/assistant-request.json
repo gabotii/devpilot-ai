@@ -1,0 +1,19 @@
+{
+  "documents": [
+    {
+      "content": "Open. Payment gateway timing out after deploy.",
+      "id": "inc-1",
+      "title": "Checkout timeouts",
+      "type": "incident"
+    },
+    {
+      "content": "iOS app",
+      "id": "p-1",
+      "title": "Mobile",
+      "type": "project"
+    }
+  ],
+  "organizationName": "Acme",
+  "question": "¿Qué incidentes de checkout hay abiertos?",
+  "requestId": "fixture-assistant"
+}

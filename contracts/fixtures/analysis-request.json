@@ -1,0 +1,11 @@
+{
+  "content": "2026-10-11T10:00:00Z Run dotnet test\n2026-10-11T10:00:05Z ERROR Npgsql.NpgsqlException: Failed to connect to 10.0.0.5:5432\n2026-10-11T10:00:05Z ---> System.Net.Sockets.SocketException (10061): Connection refused\n2026-10-11T10:00:06Z ERROR Npgsql.NpgsqlException: Failed to connect to 10.0.0.5:5432\nError: Process completed with exit code 1.",
+  "context": {
+    "branch": "main",
+    "environment": "ci",
+    "pipelineName": "ci.yml",
+    "projectName": "Checkout"
+  },
+  "kind": "pipeline_failure",
+  "requestId": "fixture-analysis"
+}

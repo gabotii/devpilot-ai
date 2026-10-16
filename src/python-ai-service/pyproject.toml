@@ -1,0 +1,42 @@
+[project]
+name = "devpilot-ai-service"
+version = "1.0.0"
+description = "DevPilot AI service: log analysis, incident summaries and assistant over authorized data."
+requires-python = ">=3.12"
+dependencies = [
+  "anthropic>=1.13,<2",
+  "fastapi>=0.143,<1",
+  "pydantic>=2.14,<3",
+  "pydantic-settings>=2.15,<3",
+  "uvicorn>=0.54,<1",
+]
+
+[project.optional-dependencies]
+dev = [
+  "mypy>=2.4",
+  "pip-audit>=2.10",
+  "pytest>=9.1",
+  "ruff>=0.17",
+]
+
+[tool.ruff]
+line-length = 140
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "S", "ASYNC", "RUF", "SIM", "PT"]
+ignore = ["S101", "RUF001", "RUF002", "RUF003", "E501"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S105", "S106"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+plugins = ["pydantic.mypy"]
+files = ["app", "tests"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+filterwarnings = ["error::pytest.PytestUnraisableExceptionWarning"]

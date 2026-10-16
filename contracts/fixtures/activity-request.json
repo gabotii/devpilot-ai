@@ -1,0 +1,15 @@
+{
+  "events": [
+    {
+      "actor": "Ana",
+      "at": "2026-10-10T10:00:00Z",
+      "summary": "completó PAY-1: Fix login"
+    }
+  ],
+  "periodDays": 7,
+  "projectName": "Checkout",
+  "requestId": "fixture-activity",
+  "stats": {
+    "overdue": 1
+  }
+}

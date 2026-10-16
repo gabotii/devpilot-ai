@@ -1,0 +1,20 @@
+{
+  "answer": "Modo determinista (sin modelo de IA): estos son los elementos de Acme más relacionados con tu pregunta:\n- [incident] Checkout timeouts: Open. Payment gateway timing out after deploy.",
+  "citations": [
+    {
+      "id": "inc-1",
+      "title": "Checkout timeouts",
+      "type": "incident"
+    }
+  ],
+  "grounded": true,
+  "latencyMs": 0,
+  "model": "devpilot-rules-v1",
+  "provider": "heuristic",
+  "redactions": {
+    "count": 0,
+    "kinds": {}
+  },
+  "requestId": "fixture-assistant",
+  "warnings": []
+}

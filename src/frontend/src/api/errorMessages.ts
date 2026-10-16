@@ -1,0 +1,35 @@
+/**
+ * Spanish messages for stable API error codes. The API speaks English (developer-facing); the UI localizes by `code`
+ * and falls back to the server's detail for codes it does not know.
+ */
+export const ERROR_MESSAGES: Record<string, string> = {
+  'auth.unauthorized': 'Email o contraseña incorrectos.',
+  'auth.required': 'Tu sesión ha caducado. Vuelve a iniciar sesión.',
+  'auth.email_taken': 'Ya existe una cuenta con este email.',
+  'csrf.invalid': 'La sesión no es válida para esta acción. Recarga la página.',
+  rate_limited: 'Demasiadas solicitudes. Espera un momento y vuelve a intentarlo.',
+  forbidden: 'No tienes permiso para realizar esta acción.',
+  'org.insufficient_role': 'Tu rol en la organización no permite esta acción.',
+  'org.last_owner': 'La organización debe conservar al menos un propietario.',
+  'org.limit_reached': 'Has alcanzado el máximo de organizaciones propias.',
+  'invitation.already_member': 'Esa persona ya es miembro de la organización.',
+  'invitation.email_mismatch': 'La invitación es para otro email.',
+  'invitation.not_pending': 'La invitación ya no está disponible.',
+  'project.key_taken': 'Esa clave ya la usa otro proyecto.',
+  'project.archived': 'El proyecto está archivado y es de solo lectura.',
+  'project.not_archived': 'Archiva el proyecto antes de eliminarlo.',
+  'project.already_member': 'La persona ya es miembro del proyecto.',
+  'workitem.invalid_transition': 'Ese cambio de estado no está permitido por el flujo del proyecto.',
+  'workitem.open_subtasks': 'No se puede completar mientras tenga subtareas abiertas.',
+  'workitem.stale': 'Otra persona modificó esta tarea. Recarga y vuelve a intentarlo.',
+  'workitem.nested_subtask': 'Las subtareas no pueden tener subtareas.',
+  'workitem.parent_closed': 'No se pueden añadir subtareas a una tarea cerrada.',
+  concurrency: 'El recurso cambió mientras lo editabas. Recarga y vuelve a intentarlo.',
+  'workflow.status_in_use': 'Hay tareas en ese estado. Muévelas antes de eliminarlo.',
+  'workflow.requires_todo': 'El flujo debe tener al menos un estado "Por hacer".',
+  'workflow.requires_done': 'El flujo debe tener al menos un estado "Completado".',
+  'workflow.duplicate_status': 'Ya existe un estado con ese nombre.',
+  'label.duplicate': 'Ya existe una etiqueta con ese nombre.',
+  'dependency.unavailable': 'Un servicio dependiente no está disponible ahora mismo. Inténtalo más tarde.',
+  internal: 'Error interno del servidor.',
+};

@@ -1,0 +1,14 @@
+{
+  "highlights": [
+    "PAY-1: Fix login"
+  ],
+  "latencyMs": 0,
+  "model": "devpilot-rules-v1",
+  "provider": "heuristic",
+  "requestId": "fixture-activity",
+  "risks": [
+    "1 tarea(s) vencida(s)."
+  ],
+  "summary": "En los últimos 7 días hubo 1 eventos en Checkout: 0 creaciones, 1 completadas, 0 cambios de estado y 0 comentarios. Más activos: Ana (1).",
+  "warnings": []
+}

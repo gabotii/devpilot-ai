@@ -1,0 +1,42 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+indent_style = space
+indent_size = 2
+trim_trailing_whitespace = true
+
+[*.{cs,csx}]
+indent_size = 4
+max_line_length = 160
+csharp_style_namespace_declarations = file_scoped:warning
+csharp_prefer_braces = true:warning
+dotnet_sort_system_directives_first = true
+
+# High-performance logging (LoggerMessage source generators) is valuable on hot paths only; keep as a suggestion.
+dotnet_diagnostic.CA1848.severity = suggestion
+dotnet_diagnostic.CA1873.severity = suggestion
+# Interface-typed parameters are a deliberate API choice here.
+dotnet_diagnostic.CA1859.severity = suggestion
+# ASP.NET Core has no SynchronizationContext.
+dotnet_diagnostic.CA2007.severity = none
+# EF Core cannot translate string.Contains(string, StringComparison); queries use ToLower().Contains() which Npgsql translates.
+dotnet_diagnostic.CA1862.severity = none
+
+[tests/**.cs]
+# Test method names use underscores for readability.
+dotnet_diagnostic.CA1707.severity = none
+dotnet_diagnostic.CA2234.severity = none
+
+[*.py]
+indent_size = 4
+
+[Makefile]
+indent_style = tab
+
+# EF Core generated migrations
+[src/backend/DevPilot.Infrastructure/Persistence/Migrations/**.cs]
+generated_code = true
+dotnet_analyzer_diagnostic.severity = none

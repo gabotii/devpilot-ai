@@ -1,0 +1,111 @@
+{
+  "classification": {
+    "category": "network",
+    "confidence": 0.55,
+    "severity": "medium"
+  },
+  "facts": [
+    {
+      "evidence": null,
+      "line": null,
+      "statement": "El log tiene 5 líneas, 3 con indicadores de error."
+    },
+    {
+      "evidence": "2026-10-11T10:00:05Z ERROR Npgsql.NpgsqlException: Failed to connect to 10.0.0.5:5432",
+      "line": 2,
+      "statement": "Primer error registrado."
+    },
+    {
+      "evidence": "Error: Process completed with exit code 1.",
+      "line": 5,
+      "statement": "Último error registrado."
+    },
+    {
+      "evidence": null,
+      "line": null,
+      "statement": "Tipos de excepción presentes: NpgsqlException ×2, SocketException ×1."
+    },
+    {
+      "evidence": "Error: Process completed with exit code 1.",
+      "line": 5,
+      "statement": "El proceso terminó con código de salida 1."
+    },
+    {
+      "evidence": "2026-10-11T10:00:05Z ERROR Npgsql.NpgsqlException: Failed to connect to 10.0.0.5:5432",
+      "line": 2,
+      "statement": "Se detectó la firma 'connection_refused'."
+    },
+    {
+      "evidence": "2026-10-11T10:00:05Z ERROR Npgsql.NpgsqlException: Failed to connect to 10.0.0.5:5432",
+      "line": 2,
+      "statement": "Se detectó la firma 'test_failure'."
+    },
+    {
+      "evidence": "2026-10-11T10:00:05Z ERROR Npgsql.NpgsqlException: Failed to connect to 10.0.0.5:5432",
+      "line": 2,
+      "statement": "Se detectó la firma 'database'."
+    }
+  ],
+  "hypotheses": [
+    {
+      "confidence": 0.55,
+      "rationale": "Coincidencia con la firma 'connection_refused' en 3 línea(s); primera en la línea 2.",
+      "statement": "Un servicio dependiente no aceptaba conexiones (caído, puerto incorrecto o aún arrancando)."
+    },
+    {
+      "confidence": 0.45,
+      "rationale": "Coincidencia con la firma 'test_failure' en 2 línea(s); primera en la línea 2.",
+      "statement": "Fallaron una o más pruebas automatizadas."
+    },
+    {
+      "confidence": 0.45,
+      "rationale": "Coincidencia con la firma 'database' en 2 línea(s); primera en la línea 2.",
+      "statement": "Error de base de datos (esquema, migración o restricción)."
+    }
+  ],
+  "latencyMs": 0,
+  "model": "devpilot-rules-v1",
+  "patterns": [
+    {
+      "example": "2026-10-11T10:00:05Z ERROR Npgsql.NpgsqlException: Failed to connect to 10.0.0.5:5432",
+      "occurrences": 2,
+      "signature": "<ts> ERROR Npgsql.NpgsqlException: Failed to connect to <n>:<n>"
+    },
+    {
+      "example": "Error: Process completed with exit code 1.",
+      "occurrences": 1,
+      "signature": "Error: Process completed with exit code <n>."
+    }
+  ],
+  "provider": "heuristic",
+  "recommendations": [
+    {
+      "action": "Verificar que el servicio destino está levantado y escuchando en el host/puerto configurado.",
+      "rationale": "La conexión fue rechazada activamente.",
+      "requiresApproval": false
+    },
+    {
+      "action": "Añadir espera/health check de dependencias antes de arrancar o ejecutar tests.",
+      "rationale": "Evita carreras de arranque en pipelines y compose.",
+      "requiresApproval": false
+    },
+    {
+      "action": "Ejecutar localmente la prueba fallida indicada y comparar valor esperado y obtenido.",
+      "rationale": "Distingue entre regresión real y test inestable.",
+      "requiresApproval": false
+    },
+    {
+      "action": "Verificar que las migraciones del entorno están al día antes de reintentar.",
+      "rationale": "Aplicar migraciones en un entorno real requiere aprobación y backup.",
+      "requiresApproval": true
+    }
+  ],
+  "redactions": {
+    "count": 0,
+    "kinds": {}
+  },
+  "requestId": "fixture-analysis",
+  "summary": "Fallo de pipeline. Análisis determinista de ci.yml: categoría probable «red». Un servicio dependiente no aceptaba conexiones (caído, puerto incorrecto o aún arrancando). Se encontraron 3 líneas con indicadores de error.",
+  "truncated": false,
+  "warnings": []
+}
