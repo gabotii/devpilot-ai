@@ -68,3 +68,5 @@ ruff check . && mypy && pytest
 | `DEVPILOT_API_URL` | Web app (dev server) | API target for the Vite proxy; defaults to `http://127.0.0.1:5080`. |
 
 > All credentials committed in `appsettings.Development.json` are local-development placeholders, not production secrets.
+
+<img width="608" height="719" alt="image" src="https://github.com/user-attachments/assets/92e8816e-efcf-4cc6-9446-0f3e016ffcab" />
